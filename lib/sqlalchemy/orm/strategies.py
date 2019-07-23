@@ -2380,7 +2380,7 @@ class SelectInLoader(AbstractRelationshipLoader, util.MemoizedSlots):
             }
 
             for key in chunk:
-                related_obj = data[key]
+                related_obj = data.get(key, None)
                 for state, dict_, overwrite in our_states[key]:
                     if not overwrite and self.key in dict_:
                         continue
